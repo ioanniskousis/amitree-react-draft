@@ -71,16 +71,12 @@ class App extends Component {
     event.preventDefault();
     createReferral(this.state.apiURL, this.state.userInfo.auth_token, (results) => {
       if (results) {
-        const userInfo = {
-          userName: this.state.userName,
-          auth_token: this.state.auth_token,
-          inviterName: this.state.inviterName,
-          creditFromSignup: this.state.creditFromSignup,
-          referral: results.referral,
-          invitedUsers: [],
-          creditFromReferral: '$0',
-        }
-        this.setState({userInfo: userInfo});
+        this.setState((state) => ({
+          userInfo: {
+            ...state.userInfo,
+            referral: results.referral
+          }
+        }));
       }
     })
   }
