@@ -1,3 +1,4 @@
+import './stylesheets/App.css';
 import './stylesheets/style.css';
 import { Component } from 'react';
 import { NavBar } from './components/nav/navBar';
@@ -5,6 +6,7 @@ import { Main } from './components/main';
 import { loginRequest } from './modules/login';
 import { signUpRequest } from './modules/signup';
 import { createReferral } from './modules/createReferral';
+import { ActivityInticator } from './components/activityInticator';
 
 class App extends Component {
   constructor(props) {
@@ -21,7 +23,8 @@ class App extends Component {
         invitedUsers: [],
         creditFromReferral: 'not authenticated',
       },
-      referralTicket: ''
+      referralTicket: '',
+      activityIndicator: false
     }
     this.navigate = this.navigate.bind(this);
     this.login = this.login.bind(this);
@@ -54,21 +57,26 @@ class App extends Component {
   login(event) {
     event.preventDefault();
     const form = event.currentTarget;
+    this.setState({activityIndicator: true});
     loginRequest(form, this.state.apiURL, (results) => {
       if (results) this.setState(results);
+      this.setState({activityIndicator: false});
     });
   }
 
   signUp(event) {
     event.preventDefault();
     const form = event.currentTarget;
+    this.setState({activityIndicator: true});
     signUpRequest(form, this.state.apiURL, (results) => {
       if (results) this.setState(results);
+      this.setState({activityIndicator: false});
     });
   }
 
   createReferral(event) {
     event.preventDefault();
+    this.setState({activityIndicator: true});
     createReferral(this.state.apiURL, this.state.userInfo.auth_token, (results) => {
       if (results) {
         this.setState((state) => ({
@@ -78,6 +86,7 @@ class App extends Component {
           }
         }));
       }
+      this.setState({activityIndicator: false});
     })
   }
 
@@ -94,6 +103,7 @@ class App extends Component {
           userInfo={this.state.userInfo}
           referralTicket={this.state.referralTicket}
         />
+        <ActivityInticator show={this.state.activityIndicator} />        
       </div>
     );
   }
