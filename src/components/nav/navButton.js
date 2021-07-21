@@ -1,14 +1,28 @@
-export function NavButton(props){
+import PropTypes from 'prop-types';
+
+export function NavButton(props) {
+  const { value, section, navigate } = props;
   return (
     <button
-    className="nav-button"
-    section={props.section}
-    id={props.section + "-button"}
-    onClick={() => props.navigate(props.section)}
+      type="button"
+      className="nav-button"
+      onClick={() => navigate(section)}
     >
-      {props.value}
+      {value}
     </button>
-  )
+  );
 }
 
-export default NavButton
+NavButton.propTypes = {
+  section: PropTypes.string,
+  value: PropTypes.string,
+  navigate: PropTypes.func,
+};
+
+NavButton.defaultProps = {
+  section: null,
+  value: null,
+  navigate: null,
+};
+
+export default NavButton;
