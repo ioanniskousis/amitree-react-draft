@@ -161,7 +161,7 @@ class App extends Component {
     const {
       userInfo,
       usersIndex,
-      // apiURL,
+      apiURL,
       authenticationInfo,
       currentView,
       referralTicket,
@@ -182,7 +182,7 @@ class App extends Component {
           userInfo={userInfo}
           usersIndex={usersIndex}
         />
-        <ActivityInticator show={activityIndicator} />
+        <ActivityInticator show={activityIndicator} apiURL={apiURL} />
       </div>
     );
   }
