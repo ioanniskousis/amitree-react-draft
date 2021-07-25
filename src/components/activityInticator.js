@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import PropTypes from 'prop-types';
 import gear from '../images/gear.png';
 
@@ -16,14 +17,13 @@ export function ActivityInticator(props) {
 }
 
 ActivityInticator.propTypes = {
-  // eslint-disable-next-line react/require-default-props
   show: PropTypes.bool,
   apiURL: PropTypes.string,
 };
 
 ActivityInticator.defaults = {
   show: false,
-  apiURL: '',
+  apiURL: null,
 };
 
 export default ActivityInticator;
