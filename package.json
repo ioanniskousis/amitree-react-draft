@@ -1,5 +1,5 @@
 {
-  "name": "amitree-react",
+  "name": "amitree-react-draft",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -52,16 +52,16 @@
     "stylelint-csstree-validator": "^1.9.0",
     "stylelint-scss": "^3.20.0"
   },
-  "description": "",
+  "description": "This describes the amitree-react-draft project",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ioanniskousis/amitree-react.git"
+    "url": "git+https://github.com/ioanniskousis/amitree-react-draft.git"
   },
-  "author": "",
+  "author": "Ioannis Kousis",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ioanniskousis/amitree-react/issues"
+    "url": "https://github.com/ioanniskousis/amitree-react-draft/issues"
   },
-  "homepage": "https://github.com/ioanniskousis/amitree-react/build/index.html"
+  "homepage": "./"
 }

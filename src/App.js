@@ -39,7 +39,7 @@ class App extends Component {
       this.setState({ apiURL: apiParam });
     } else {
       // this.setState({ apiURL: 'http://localhost:3000' });
-      this.setState({ apiURL: 'https://boiling-fjord-82978.herokuapp.com' })
+      this.setState({ apiURL: 'https://boiling-fjord-82978.herokuapp.com' });
     }
     if (referralCode) {
       this.setState({
@@ -161,7 +161,7 @@ class App extends Component {
     const {
       userInfo,
       usersIndex,
-      // apiURL,
+      apiURL,
       authenticationInfo,
       currentView,
       referralTicket,
@@ -182,7 +182,7 @@ class App extends Component {
           userInfo={userInfo}
           usersIndex={usersIndex}
         />
-        <ActivityInticator show={activityIndicator} />
+        <ActivityInticator show={activityIndicator} apiURL={apiURL} />
       </div>
     );
   }
